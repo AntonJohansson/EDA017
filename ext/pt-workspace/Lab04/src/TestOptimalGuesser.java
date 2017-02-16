@@ -1,4 +1,6 @@
-public class Laboration_1{
+
+public class TestOptimalGuesser {
 	public static void main(String[] args){
+		
 	}
 }
