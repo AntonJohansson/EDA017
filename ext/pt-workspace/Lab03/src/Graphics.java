@@ -8,21 +8,12 @@ public class Graphics {
 	private int height;
 	private int blockSize;
 	
-	Graphics(int w, int h, int bs)
-	{
+	Graphics(int w, int h, int bs){
 		this.width = w;
 		this.height = h;
 		this.blockSize = bs;
 		
 		this.w = new SimpleWindow(width * blockSize, height * blockSize, "Digging");
-	}
-	
-	public void square(){
-		w.moveTo(10, 10);
-		w.lineTo(10, 20);
-		w.lineTo(20, 20);
-		w.lineTo(20, 10);
-		w.lineTo(10, 10);
 	}
 	
 	public void block(int x, int y, Color color){

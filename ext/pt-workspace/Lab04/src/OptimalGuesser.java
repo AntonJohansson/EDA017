@@ -15,8 +15,12 @@ public class OptimalGuesser {
 		int min = nbr.getMin();
 		int max = nbr.getMax();
 
-		int guess = (max - min) / 2;
-		int iterations = 0;
+		//max = 100; min = 0
+		//guess = 50
+		//nbr = 75
+		
+		
+		int guess = 0, iterations = 0;
 
 		// om rätt return
 		// om > ta intervallet (max - guess)/2
@@ -24,14 +28,15 @@ public class OptimalGuesser {
 		// Upprepa
 
 		while (true) {
+			guess = (max + min) / 2;
 			iterations++;
 			
 			if (nbr.isEqual(guess)) {
 				return iterations;
 			} else if (nbr.isBiggerThan(guess)) {
-				guess = (guess - min)/2;
+				min = guess;
 			} else {
-				guess = (max - guess)/2;
+				max = guess;
 			}
 		}
 	}

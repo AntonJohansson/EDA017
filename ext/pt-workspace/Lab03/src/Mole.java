@@ -8,7 +8,6 @@ public class Mole {
 		Mole m = new Mole();
 		m.drawWorld();
 		m.dig();
-		
 	}
 	
 	private void drawWorld(){
@@ -25,16 +24,22 @@ public class Mole {
 		
 		while(true){
 			// Hantera kollision med omgivningen
-			if(x > width - 1)x = width - 1;
-			else if (x < 0)x = 0;
+			if(x >= width){
+				x = width - 1;
+			}else if (x < 0){
+				x = 0;
+			}
 			
-			if(y > height - 1)y = height - 1;
-			else if (y < SKY_HEIGHT)y = SKY_HEIGHT;
+			if(y >= height){
+				y = height - 1;
+			}else if (y < SKY_HEIGHT){
+				y = SKY_HEIGHT;
+			}
 			
 			g.block(x, y, Colors.MOLE);
 			char key = g.waitForKey();
 			
-			if(y > SKY_HEIGHT + GRASS_HEIGHT - 1){
+			if(y >= SKY_HEIGHT + GRASS_HEIGHT){
 				g.block(x, y, Colors.TUNNEL);
 			}else{
 				g.block(x, y, Colors.GRASS);
