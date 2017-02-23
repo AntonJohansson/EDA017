@@ -1,0 +1,24 @@
+import se.lth.cs.pt.window.SimpleWindow;
+import java.util.Random;
+
+public class TurtleRandom1 {
+	private static Random r;
+	
+	public static void main(String[] args) {
+		SimpleWindow w = new SimpleWindow(600, 600, "TurtleDrawSquare");
+		r = new Random();
+		
+		Turtle t = new Turtle(w, 300, 300);
+		t.penDown();
+
+		for (int i = 0; i < 1000; i++){
+			t.forward(randomIntIn(1, 10));
+			t.left(random.nextInt(360 + 1) - 180);
+			SimpleWindow.delay(10);
+		}
+	}
+	
+	private static int randomIntIn(Random random, int min, int max){
+		return random.nextInt(max - min + 1) + min;
+	}
+}
