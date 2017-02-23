@@ -5,11 +5,11 @@ yprim = @(t, y) 5*t + 5*exp(1).^(-0.5*t) - 7*y.^2;
 
 plot(t, y);
 
-% Ger fel värde för att vi inte tar hänsyn till steg-storleken.
-% y(7) ger det sjunde y-värdet vilket inte behöver stämma överens
+% Ger fel vï¿½rde fï¿½r att vi inte tar hï¿½nsyn till steg-storleken.
+% y(7) ger det sjunde y-vï¿½rdet vilket inte behï¿½ver stï¿½mma ï¿½verens
 % med y(t = 7)
 fprintf('y(7) = %f\n', y(7));
-[~,i] = min(abs(t-7)); % ~ representerar ett returnvärde som inte används
+[~,i] = min(abs(t-7)); % ~ representerar ett returnvï¿½rde som inte anvï¿½nds
 fprintf('y(t = 7) = %f\n', y(i));
 
 %% D2
@@ -19,15 +19,15 @@ y = [ 3.749 4.689 6.273 5.897 6.381 7.003 ];
 
 p1 = polyfit(x, y, 5);
 p2 = polyfit(x, y, 1);
-x_p = linspace(0, 5);
+x_p = linspace(-5, 5);
 
 hold on;
 plot(x, y, 'r+');
 plot(x_p, polyval(p1, x_p), 'g');
 plot(x_p, polyval(p2, x_p), 'b');
-% Även om polynomet passar perfekt så är det inte en bra modell.
-% Modellen är "överanpassad" och representerar inte den ökande
-% trenden hos mätdatan.
+% ï¿½ven om polynomet passar perfekt sï¿½ ï¿½r det inte en bra modell.
+% Modellen ï¿½r "ï¿½veranpassad" och representerar inte den ï¿½kande
+% trenden hos mï¿½tdatan.
 
 %% D3
 
@@ -66,11 +66,11 @@ v2 = csvread('race.txt');
 t = linspace(0, 40, length(v1));
 
 % filtrera spikar till 0
-v1(v1 > 90) = 0;
+v1(v1 > 90) = 0; % []
 
 plot(t, v1);
 
-% filtrera spikar till närmaste
+% filtrera spikar till nï¿½rmaste
 % funkar om inga spikar ligger brevid varandra
 v2(v2 > 90) = v2(find(v2 > 90) - 1); 
 
@@ -87,7 +87,7 @@ t = linspace(0, 40, length(v));
 
 s = trapz(t, v); % integrera med trapetsmetoden
 
-fprintf('Tillryggalagd sträcka: %f m\n', s);
+fprintf('Tillryggalagd strï¿½cka: %f m\n', s);
 fprintf('Medelhastighet (v = s/t): %f m/s\n', s/40);
 fprintf('Medelhastighet (mean(v)): %f m/s\n', mean(v));
 
@@ -103,9 +103,9 @@ plot(t, v);
 v = csvread('const_accel.txt');
 t = linspace(0, 5, length(v)).';
 
-p = polyfit(v, t, 1);
+p = polyfit(t, v, 1);
 
-fprintf('Den (nästan) konstanta accelerationen är: %f m/s^2\n', p(1));
+fprintf('Den (nï¿½stan) konstanta accelerationen ï¿½r: %f m/s^2\n', p(1));
 
 %% D9
 
@@ -115,7 +115,7 @@ C = 0.24;
 A = 2.4; % m^2
 rho = 1.29; % kg/m^3
 
-F_motor = @(v) 4*M / r;     % Känns bättre även om F_motor inte beror av v
+F_motor = @(v) 4*M / r;     % Kï¿½nns bï¿½ttre ï¿½ven om F_motor inte beror av v
 F_luft = @(v) -C*rho*A*v.^2 ./ 2;
 F = @(v) F_motor(v) + F_luft(v);
 
@@ -128,14 +128,14 @@ C = 0.24;
 A = 2.4; % m^2
 rho = 1.29; % kg/m^3
 
-F_motor = @(v) 4*M / r;     % Känns bättre även om F_motor inte beror av v
+F_motor = @(v) 4*M / r;     % Kï¿½nns bï¿½ttre ï¿½ven om F_motor inte beror av v
 F_luft = @(v) -C*rho*A*v.^2 ./ 2;
 F = @(v) F_motor(v) + F_luft(v);
 
 a = @(t, v) F(v) ./ m;
 
 [t v] = ode45(a, [0 3], 0);
-[~,i] = min(abs(t-3)); % ~ representerar ett returnvärde som inte används
+[~,i] = min(abs(t-3)); % ~ representerar ett returnvï¿½rde som inte anvï¿½nds
 fprintf('Maximalt v efter 3-sek: %f m/s\n', y(i));
 plot(t, v);
 
