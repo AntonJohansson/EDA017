@@ -4,11 +4,11 @@ import se.lth.cs.pt.window.SimpleWindow;
 
 public class Turtle {
 	private SimpleWindow w;
-	double x;
-	double y;
-	int alpha; // riktning i grader med avseende på +x-axeln.
-	boolean isPenDown;
-	Color color; // färg på linjen som ritas
+	private double x;
+	private double y;
+	private int alpha; // riktning i grader med avseende på +x-axeln.
+	private boolean isPenDown;
+	private Color color; // färg på linjen som ritas
 	
 	/** Skapar en sköldpadda som ritar i ritfönstret w. Från början 
 	    befinner sig sköldpaddan i punkten x, y med pennan lyft och 
