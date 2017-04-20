@@ -9,6 +9,7 @@ import javax.imageio.ImageIO;
 public class MemoryCardImage {
 	private Image back;
 	private Image front;
+	private boolean cardTurned = false;
 	
 	/** Skapar en tvåsidig bild av ett memorykort. Bilden på framsidan finns i
 	    filen med namnet frontFileName och bilden på baksidan i filen med namnet 
@@ -17,6 +18,16 @@ public class MemoryCardImage {
 		front = readImage(frontFileName);
 		back = readImage(backFileName);
 
+	}
+	
+	/** Vänder kortet **/
+	public void turnCard(){
+		cardTurned = !cardTurned;
+	}
+	
+	/** Returnerar sant om kortet är vänt **/
+	public boolean isCardTurned(){
+		return cardTurned;
 	}
 	
 	/** Returnerar bilden på framsidan. */
