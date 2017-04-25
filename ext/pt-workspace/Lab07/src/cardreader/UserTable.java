@@ -56,14 +56,17 @@ public class UserTable {
 		while (pos < n && users[pos].getCardNbr() < u.getCardNbr()) {
 			pos++;
 		}
-
+		
 		// 2. skapa en lucka i vektorn
 		for (int i = n; i > pos; i--) {
 			users[i] = users[i - 1];
 		}
-
+		
 		// 3. stoppa in den nya boken i luckan
 		users[pos] = u;
+		
+		// 4. uppdatera antalet användare i systemet.
+		n++;
 	}
 
 	/**
@@ -79,7 +82,7 @@ public class UserTable {
 		int high = n - 1;
 		int mid = -1;
 		boolean found = false;
-		while (low < high && ! found) {
+		while (low <= high && !found) {
 			mid = (low + high) / 2;
 			if (users[mid].getCardNbr() == cardNbr) {
 				found = true;
@@ -121,9 +124,9 @@ public class UserTable {
 		for (int i = 0; i < n; i++) {
 			if (users[i].getName().equals(name)) {
 				return users[i];
-			} else {
+			} /*else {
 				return null;
-			}
+			}*/
 		}
 		
 		return null;
@@ -136,6 +139,7 @@ public class UserTable {
 		for (int i = 0; i < n; i++) {
 			System.out.println(users[i].toString());
 		}
+		
 		System.out.println("-------------------");
 		System.out.println("Totalt " + n + " användare i systemet.");
 	}
