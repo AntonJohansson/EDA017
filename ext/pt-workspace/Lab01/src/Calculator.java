@@ -1,7 +1,10 @@
 import java.util.Scanner;
 
+import se.lth.cs.pt.square.Square;
+
 public class Calculator {
 	public static void main(String[] args) {
+		Square sq;
 		System.out.println("Skriv två tal");
 		Scanner scan = new Scanner(System.in);
 		
