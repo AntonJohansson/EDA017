@@ -129,7 +129,7 @@ public class MemoryGame {
 			if(value == 0){
 				int score = startGame();
 				
-				if(score < highscore.get(0)){
+				if(score < highscore.get(highscore.size() - 1)){
 					String name = JOptionPane.showInputDialog(null, "Grattis du slog ett nytt rekord på " + score + " försök!\nSkriv ditt namn:", "Nytt rekord!", JOptionPane.PLAIN_MESSAGE);
 					addHighscore(score, name);
 				}else{
