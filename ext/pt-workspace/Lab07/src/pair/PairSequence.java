@@ -30,10 +30,16 @@ public class PairSequence {
 	/** Hämtar ett slumpmässigt valt talpar ur sekvensen. Sekvensen
     	blir ett element kortare. Om sekvensen är tom returneras null. */
 	public Pair pick() {
-		int rand = PairSequence.rand.nextInt(n);
-		Pair p = pairs[rand];
-		pairs[rand] = pairs[n - 1];
-		n--;
+		
+		Pair p = null;
+
+		if(more()){
+			int rand = PairSequence.rand.nextInt(n);
+			p = pairs[rand];
+			pairs[rand] = pairs[n - 1];
+			n--;
+		}
+
 		
 		return p;
 	}
