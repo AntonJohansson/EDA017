@@ -1,14 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="ExternalProjectImportWizard">
-		<item value="true" key="WizardProjectsImportPage.STORE_NESTED_PROJECTS"/>
-		<item value="true" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
-		<item value="true" key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"/>
+		<item value="false" key="WizardProjectsImportPage.STORE_NESTED_PROJECTS"/>
+		<item value="false" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
+		<item value="false" key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"/>
 		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
-			<item value=""/>
+			<item value="/h/d6/d/an2178jo-s/EDA017/ext/pt-workspace"/>
 		</list>
 		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
-			<item value="/Users/patrik/git/gk-uppgifter/datorovningar/eda011-017.jar"/>
+			<item value=""/>
 		</list>
+	</section>
+	<section name="WORKBENCH_SETTINGS">
+		<list key="ENABLED_TRANSFERS">
+		</list>
+	</section>
+	<section name="ChooseWorkspaceDialogSettings">
+		<item value="200" key="DIALOG_X_ORIGIN"/>
+		<item value="172" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>

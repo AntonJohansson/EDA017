@@ -63,7 +63,7 @@ public class MemoryGame {
 	
 	private static void addHighscore(int score, String name){
 		int index = 0;
-		while(highscore.get(index) < score)index++;
+		while(highscore.size() > 0 && highscore.get(index) < score)index++;
 		
 		highscore.add(index, score);
 		highscoreName.add(index, name);
@@ -129,7 +129,7 @@ public class MemoryGame {
 			if(value == 0){
 				int score = startGame();
 				
-				if(score < highscore.get(highscore.size() - 1)){
+				if(highscore.size() == 0 || score < highscore.get(highscore.size() - 1)){
 					String name = JOptionPane.showInputDialog(null, "Grattis du slog ett nytt rekord på " + score + " försök!\nSkriv ditt namn:", "Nytt rekord!", JOptionPane.PLAIN_MESSAGE);
 					addHighscore(score, name);
 				}else{
