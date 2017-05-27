@@ -1,0 +1,64 @@
+import java.util.ArrayList;
+import java.util.Random;
+
+public class TurtleRace {
+	private static int NBR_OF_TURTLES = 8;
+	
+	public static RaceTurtle getRandomTurtle(RaceWindow w, int number)
+	
+	public static void main(String[] args){
+		RaceWindow w = new RaceWindow();
+		Random random = new Random();
+		
+		ArrayList<RaceTurtle> turtleList = new ArrayList<RaceTurtle>();
+		ArrayList<RaceTurtle> goalList = new ArrayList<RaceTurtle>();
+		
+		for(int i = 0; i < NBR_OF_TURTLES; i++){
+			Turtle turtle = null;
+			int turtleType = random.nextInt(3);
+			
+			switch(turtleType){
+			case 0:
+				turtle = new MoleTurtle(w, (i + 1));
+				break;
+			case 1:
+				turtle = new DizzyTurtle(w, (i + 1));
+				break;
+			case 2:
+				turtle = new AbsentMindedTurtle(w, (i + 1));
+			}
+			
+			turtleList.add((RaceTurtle) turtle);
+		}
+		
+		RaceTurtle t;
+		while(turtleList.size() > 0){
+			for(int i = 0; i < turtleList.size(); i++){
+				t = turtleList.get(i);
+				if(t.getX() < RaceWindow.X_END_POS){
+					t.raceStep();	
+				}else{
+					goalList.add(t);
+					turtleList.remove(t);
+				}
+			}
+			
+			RaceWindow.delay(10);
+		}
+		
+		for(int i = 0; i < 3; i++){
+			System.out.println("På plats " + (i + 1) + ":\t" + goalList.get(i));
+		}
+		
+		/*
+		 * Loppet kommer gynna sköldpaddor med lägre startnummer i.o.m.
+		 * att vi loopar från lägre till högre startnummer, paddor med lägre
+		 * nummer kommer få sin position updaterad först och jämförelsen med
+		 * mållinjen görs tidigare.
+		 * 
+		 * Ett sätt att fixa detta skulle vara att först uppdatera positonen av
+		 * alla sköldpaddor och sedan kolla vilka som passerat mållinjen,
+		 * då måste man dock ta hänsyn till delade platser.
+		 */
+	}
+}

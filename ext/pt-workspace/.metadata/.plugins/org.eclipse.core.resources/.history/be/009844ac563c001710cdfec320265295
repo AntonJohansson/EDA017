@@ -1,0 +1,28 @@
+
+public class DizzyTurtle extends RaceTurtle{
+	int yrsel = 5;
+	final int yrselFaktor = 5;
+
+	public DizzyTurtle(RaceWindow w, int nbr) {
+		super(w, nbr);
+	}
+	
+	/**
+	 * Låter sköldpaddan gå framåt ett steg. Stegets längd ges av ett
+	 * slumptal (heltal) mellan 1 och 6.
+	 */
+	public void raceStep(){
+		super.raceStep();
+		
+		left(yrselFaktor*(random.nextInt(yrsel) - yrsel/2));
+	}
+	
+	/**
+	 * Returnerar en läsbar representation av denna RaceTurtle,
+	 * på formen "Nummer x" där x är sköldpaddans startnummer.
+	 */
+	public String toString(){
+		return super.toString();
+	}
+
+}
